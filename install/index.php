@@ -15,7 +15,7 @@ class bitrix_bootstrapmodule extends CModule
         include __DIR__ . '/version.php';
         $this->MODULE_VERSION = $arModuleVersion['VERSION'];
         $this->MODULE_VERSION_DATE = $arModuleVersion['VERSION_DATE'];
-        $this->MODULE_ID = getModuleId(__DIR__);
+        $this->MODULE_ID = str_replace("_", ".", self::class);
         $this->MODULE_NAME = Loc::getMessage($this->MODULE_ID . '_MODULE_NAME');
         $this->MODULE_DESCRIPTION = Loc::getMessage($this->MODULE_ID . '_MODULE_DESCRIPTION');
         $this->MODULE_GROUP_RIGHTS = 'N';
