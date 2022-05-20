@@ -3,6 +3,7 @@
 use Bitrix\Main\Config\Option;
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\ModuleManager;
+use Bitrix\Main\ArgumentNullException;
 
 Loc::loadMessages(__FILE__);
 
@@ -75,12 +76,21 @@ class bitrix_bootstrapmodule extends CModule
 
     public function InstallDB()
     {
-
+        global $DB;
+        $DB->RunSQLBatch(__DIR__ . "/db/mysql/install.sql");
     }
 
     public function UnInstallDB()
     {
-        Option::delete($this->MODULE_ID);
+        global $APPLICATION, $DB;
+
+        $DB->RunSQLBatch(__DIR__ . "/db/mysql/uninstall.sql");
+
+        try {
+            Option::delete($this->MODULE_ID);
+        } catch (ArgumentNullException $e) {
+            $APPLICATION->ThrowException($e->getMessage());
+        }
     }
 
     public function InstallEvents()
