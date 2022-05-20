@@ -1,5 +1,5 @@
 <?php
-$moduleId = getModuleId(__DIR__);
+$moduleId = "bitrix.bootstrapmodule";
 $MESS[$moduleId . '_MODULE_NAME'] = 'module name';
 $MESS[$moduleId . '_MODULE_DESCRIPTION'] = 'module desc';
 $MESS[$moduleId . '_MODULE_PARTNER_NAME'] = 'developer';
