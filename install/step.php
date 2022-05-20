@@ -5,7 +5,7 @@ use Bitrix\Main\Localization\Loc;
 global $APPLICATION;
 
 Loc::loadMessages(__FILE__);
-$moduleId = getModuleId(__DIR__);
+$moduleId = "bitrix.bootstrapmodule";
 
 if ($errorException = $APPLICATION->GetException()) {
     CAdminMessage::ShowMessage($errorException->GetString());
