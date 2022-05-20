@@ -5,7 +5,7 @@ use Bitrix\Main\Localization\Loc;
 global $APPLICATION;
 
 Loc::loadMessages(__FILE__);
-$moduleId = getModuleId(__DIR__);
+$moduleId = "bitrix.bootstrapmodule";
 
 CAdminMessage::ShowNote(Loc::getMessage($moduleId . "_UNSTEP_BEFORE") . " " . Loc::getMessage($moduleId . "_UNSTEP_AFTER"))
 ?>
